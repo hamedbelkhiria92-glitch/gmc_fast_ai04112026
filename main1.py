@@ -45,3 +45,33 @@ def quizz(request:QuizzRequest):
             }
         ]
     }
+
+class SummarizeQuest1(BaseModel):
+    request:str
+@app.get("/summarize1")
+def summarize(request:SummarizeQuest1):
+    return {summarize:request}
+
+class FlashCard1(BaseModel):
+    flash:str
+
+app.get("/flashcard1")
+def flashcard(request:FlashCard1):
+    return {flashcard:request}
+
+
+class SummarizeQuest(BaseModel):
+    topic:str
+@app.post("/summarize")
+def summarize(request:SummarizeQuest):
+    return {"topic":request.topic,
+            "summary":"This is summary"}
+
+class FlashCard(BaseModel):
+    cours:str
+    number_flashcards:int
+
+app.get("/flashcard")
+def flashcard(request:FlashCard):
+    return {"topic":request.topic,
+            "flashcards":["a","b","c"]}
