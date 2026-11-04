@@ -13,5 +13,12 @@ def root():
 
 @app.get("/about")
 
-def root():
+def about():
     return {"title":"ai assitant","description":"helps people"}
+
+@app.get("/health")
+
+def health():
+    return {
+        "health":"good"
+    }
